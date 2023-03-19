@@ -17,7 +17,7 @@ namespace Lê_Hồng_Cát_Tường_2011063819.Controllers
         // GET: Coursesses
         public ActionResult Index()
         {
-            var coursesses = db.Coursesses.Include(c => c.categoriess);
+            var coursesses = db.categories.Include(c => c.categoriess);
             return View(coursesses.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace Lê_Hồng_Cát_Tường_2011063819.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Coursess coursess = db.Coursesses.Find(id);
+            Coursesses coursess = db.Coursesses.Find(id);
             if (coursess == null)
             {
                 return HttpNotFound();
@@ -52,7 +52,7 @@ namespace Lê_Hồng_Cát_Tường_2011063819.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Coursesses.Add(coursess);
+                db.categories.Add(coursess);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -68,7 +68,7 @@ namespace Lê_Hồng_Cát_Tường_2011063819.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Coursess coursess = db.Coursesses.Find(id);
+            Coursess coursess = db.categories.Find(id);
             if (coursess == null)
             {
                 return HttpNotFound();
@@ -101,7 +101,7 @@ namespace Lê_Hồng_Cát_Tường_2011063819.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Coursess coursess = db.Coursesses.Find(id);
+            Coursess coursess = db.categories.Find(id);
             if (coursess == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace Lê_Hồng_Cát_Tường_2011063819.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Coursess coursess = db.Coursesses.Find(id);
-            db.Coursesses.Remove(coursess);
+            Coursess coursess = db.categories.Find(id);
+            db.categories.Remove(coursess);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -13,7 +13,7 @@ namespace Lê_Hồng_Cát_Tường_2011063819.Models
         }
 
         public virtual DbSet<categoriess> categoriesses { get; set; }
-        public virtual DbSet<Coursess> Coursesses { get; set; }
+        public virtual DbSet<Coursess> categories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
